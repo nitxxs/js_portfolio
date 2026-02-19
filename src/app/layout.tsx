@@ -4,7 +4,7 @@ import { LanguageProvider } from "@/hooks/useLanguage";
 import { EditModeProvider } from "@/hooks/useEditMode";
 
 export const metadata: Metadata = {
-  title: "Kim Jae Sung — Portfolio",
+  title: "JaeSung_Dev_Portfolio",
   description: "AI / Game AI / Reinforcement Learning Engineer",
 };
 
