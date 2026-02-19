@@ -738,7 +738,7 @@ function ProjectDetailSlide({
           {/* Info table */}
           <div className="space-y-4 md:space-y-6">
             <div className="flex gap-3 md:gap-5 items-start">
-              <span className="inline-flex items-center justify-center px-2 md:px-3 py-1 bg-[#273448] text-white text-[10px] md:text-xs font-semibold rounded-[2px] w-[72px] md:w-[84px] shrink-0">
+              <span className="inline-flex items-center justify-center px-2 md:px-3 py-1 bg-[#2e4164] text-white text-[10px] md:text-xs font-semibold rounded-[2px] w-[72px] md:w-[84px] shrink-0">
                 일시
               </span>
               <span className="text-sm pt-0.5 flex-1 min-w-0">
@@ -747,7 +747,7 @@ function ProjectDetailSlide({
             </div>
 
             <div className="flex gap-3 md:gap-5 items-start">
-              <span className="inline-flex items-center justify-center px-2 md:px-3 py-1 bg-[#273448] text-white text-[10px] md:text-xs font-semibold rounded-[2px] w-[72px] md:w-[84px] shrink-0">
+              <span className="inline-flex items-center justify-center px-2 md:px-3 py-1 bg-[#2e4164] text-white text-[10px] md:text-xs font-semibold rounded-[2px] w-[72px] md:w-[84px] shrink-0">
                 클라이언트
               </span>
               <span className="text-sm pt-0.5 flex-1 min-w-0">
@@ -756,7 +756,7 @@ function ProjectDetailSlide({
             </div>
 
             <div className="flex gap-3 md:gap-5 items-start">
-              <span className="inline-flex items-center justify-center px-2 md:px-3 py-1 bg-[#273448] text-white text-[10px] md:text-xs font-semibold rounded-[2px] w-[72px] md:w-[84px] shrink-0">
+              <span className="inline-flex items-center justify-center px-2 md:px-3 py-1 bg-[#2e4164] text-white text-[10px] md:text-xs font-semibold rounded-[2px] w-[72px] md:w-[84px] shrink-0">
                 역할
               </span>
               <span className="text-sm pt-0.5 flex-1 min-w-0">
@@ -765,7 +765,7 @@ function ProjectDetailSlide({
             </div>
 
             <div className="flex gap-3 md:gap-5 items-start">
-              <span className="inline-flex items-center justify-center px-2 md:px-3 py-1 bg-[#273448] text-white text-[10px] md:text-xs font-semibold rounded-[2px] w-[72px] md:w-[84px] shrink-0">
+              <span className="inline-flex items-center justify-center px-2 md:px-3 py-1 bg-[#2e4164] text-white text-[10px] md:text-xs font-semibold rounded-[2px] w-[72px] md:w-[84px] shrink-0">
                 활동소개
               </span>
               <div className="text-sm leading-relaxed pt-0.5 flex-1 min-w-0">
