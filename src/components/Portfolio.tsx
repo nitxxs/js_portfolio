@@ -175,7 +175,7 @@ function PasswordModal() {
           }}
           onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
           placeholder="Password"
-          className="w-full border border-grid-line rounded px-3 py-2 text-sm outline-none focus:border-accent bg-transparent"
+          className="w-full border border-grid-line rounded px-3 py-2 text-base outline-none focus:border-accent bg-transparent"
         />
         {error && (
           <p className="text-xs text-red-500 mt-2">
@@ -997,19 +997,19 @@ export default function Portfolio() {
       {showPasswordModal && <PasswordModal />}
 
       {/* Top-right buttons — fixed on mobile so always visible while scrolling */}
-      <div className="fixed md:absolute top-2 right-3 md:top-3 md:right-5 z-30 flex items-center gap-1.5 md:gap-2">
+      <div className="fixed top-2 right-3 md:top-3 md:right-5 z-30 flex items-center gap-1.5 md:gap-2">
         {/* Dark mode toggle */}
         <button
           onClick={toggleDark}
-          className="flex items-center justify-center w-7 h-7 md:w-8 md:h-8 rounded bg-card-bg/80 border border-grid-line hover:bg-accent hover:text-white hover:border-accent transition-all duration-200 group"
+          className="flex items-center justify-center w-8 h-8 rounded-md bg-card-bg border border-grid-line shadow-sm active:scale-95 transition-transform"
           aria-label="Toggle dark mode"
         >
           {dark ? (
-            <svg className="w-3.5 h-3.5 md:w-4 md:h-4 text-secondary group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+            <svg className="w-4 h-4 text-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1m0 16v1m8.66-13.66l-.71.71M4.05 19.95l-.71.71M21 12h-1M4 12H3m16.66 7.66l-.71-.71M4.05 4.05l-.71-.71M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
             </svg>
           ) : (
-            <svg className="w-3.5 h-3.5 md:w-4 md:h-4 text-secondary group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+            <svg className="w-4 h-4 text-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
             </svg>
           )}
@@ -1019,11 +1019,11 @@ export default function Portfolio() {
         {!isEditing && (
           <button
             onClick={() => setShowPasswordModal(true)}
-            className="flex items-center gap-1 md:gap-1.5 px-2 py-1 md:px-3 md:py-1.5 rounded bg-card-bg/80 border border-grid-line hover:bg-accent hover:text-white hover:border-accent transition-all duration-200 group"
+            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-md bg-card-bg border border-grid-line shadow-sm active:scale-95 transition-transform"
             aria-label="Edit"
           >
             <svg
-              className="w-3.5 h-3.5 text-secondary group-hover:text-white transition-colors"
+              className="w-3.5 h-3.5 text-foreground"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -1035,7 +1035,7 @@ export default function Portfolio() {
                 d="M16.862 3.487a2.1 2.1 0 1 1 2.97 2.97L7.5 18.79l-4 1 1-4L16.862 3.487z"
               />
             </svg>
-            <span className="text-xs font-medium text-secondary group-hover:text-white transition-colors">
+            <span className="text-xs font-medium text-foreground">
               Edit
             </span>
           </button>
