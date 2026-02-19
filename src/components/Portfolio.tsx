@@ -291,14 +291,14 @@ function HeroSlide() {
       {/* Content */}
       <div className="relative z-10 h-full flex flex-col justify-between px-6 pt-20 pb-10 md:pl-28 md:pr-20 md:pt-24 md:pb-16 overflow-y-auto no-scrollbar">
         {/* Title */}
-        <h1 className="text-[clamp(1.8rem,7.5vw,6.5rem)] font-black leading-[1.05] tracking-[-0.03em]">
+        <h1 className="text-[clamp(2.5rem,7.5vw,6.5rem)] font-black leading-[1.05] tracking-[-0.03em]">
           <ET path="hero.nameEn" inline />&apos;s
           <br />
           <ET path="hero.subtitle" inline />
         </h1>
 
         {/* Bottom section */}
-        <div className="space-y-4">
+        <div className="space-y-4 mt-16 md:mt-0">
           {isEditing ? (
             <div className="space-y-1">
               <p className="text-sm font-semibold">
