@@ -281,7 +281,7 @@ function HeroSlide() {
     .map((f: string) => `#${f.replace(/\s+/g, "")}`);
 
   return (
-    <div className="relative h-full bg-card-bg">
+    <div className="relative min-h-[70vh] md:h-full bg-card-bg">
       {/* Grid decorations */}
       <div className="absolute top-14 left-0 right-0 h-px bg-grid-line" />
       <div className="absolute bottom-[140px] left-0 right-0 h-px bg-grid-line hidden md:block" />
@@ -332,7 +332,7 @@ function ProfileSlide() {
   const { isEditing } = useEditMode();
 
   return (
-    <div className="relative h-full bg-card-bg">
+    <div className="relative min-h-[70vh] md:h-full bg-card-bg">
       {/* Grid decorations */}
       <div className="absolute top-14 left-0 right-0 h-px bg-grid-line" />
       <div className="absolute bottom-14 left-0 right-0 h-px bg-grid-line hidden md:block" />
@@ -589,7 +589,7 @@ function AboutSlide() {
   const { isEditing } = useEditMode();
 
   return (
-    <div className="relative h-full bg-card-bg">
+    <div className="relative min-h-[70vh] md:h-full bg-card-bg">
       {/* Grid decorations */}
       <div className="absolute top-14 left-0 right-0 h-px bg-grid-line" />
       <div className="absolute top-[46%] left-0 right-0 h-px bg-grid-line hidden md:block" />
@@ -633,7 +633,7 @@ function ProjectsSlide({
   const { isEditing } = useEditMode();
 
   return (
-    <div className="relative h-full bg-card-bg">
+    <div className="relative min-h-[70vh] md:h-full bg-card-bg">
       {/* Grid decorations */}
       <div className="absolute top-14 left-0 right-0 h-px bg-grid-line" />
       <div className="absolute top-[62%] left-0 right-0 h-px bg-grid-line hidden md:block" />
@@ -698,7 +698,7 @@ function ProjectDetailSlide({
   const pi = projectIndex;
 
   return (
-    <div className="relative h-full bg-card-bg">
+    <div className="relative min-h-[70vh] md:h-full bg-card-bg">
       {/* Grid decorations */}
       <div className="absolute top-14 left-0 right-0 h-px bg-grid-line hidden md:block" />
       <div className="absolute bottom-14 left-0 right-0 h-px bg-grid-line hidden md:block" />
@@ -835,7 +835,7 @@ function ContactSlide() {
   const { isEditing } = useEditMode();
 
   return (
-    <div className="relative h-full bg-card-bg">
+    <div className="relative min-h-[70vh] md:h-full bg-card-bg">
       {/* Grid decorations */}
       <div className="absolute top-14 left-0 right-0 h-px bg-grid-line" />
       <div className="absolute bottom-14 left-0 right-0 h-px bg-grid-line hidden md:block" />
@@ -992,12 +992,12 @@ export default function Portfolio() {
   }, [next, prev, isEditing]);
 
   return (
-    <div className="relative w-screen h-screen bg-background select-none">
+    <div className="relative w-screen min-h-screen md:h-screen bg-background select-none">
       {isEditing && <EditToolbar />}
       {showPasswordModal && <PasswordModal />}
 
-      {/* Top-right buttons */}
-      <div className="absolute top-2 right-3 md:top-3 md:right-5 z-30 flex items-center gap-1.5 md:gap-2">
+      {/* Top-right buttons — fixed on mobile so always visible while scrolling */}
+      <div className="fixed md:absolute top-2 right-3 md:top-3 md:right-5 z-30 flex items-center gap-1.5 md:gap-2">
         {/* Dark mode toggle */}
         <button
           onClick={toggleDark}
@@ -1044,7 +1044,7 @@ export default function Portfolio() {
 
       <div
         ref={containerRef}
-        className={`h-full overflow-y-auto snap-y snap-mandatory no-scrollbar ${
+        className={`h-full overflow-y-auto md:snap-y md:snap-mandatory no-scrollbar ${
           isEditing ? "pt-[49px]" : ""
         }`}
       >
@@ -1054,7 +1054,7 @@ export default function Portfolio() {
             ref={(el) => {
               slideRefs.current[i] = el;
             }}
-            className={`snap-start ${isEditing ? "min-h-screen" : "h-screen"}`}
+            className={`md:snap-start ${isEditing ? "min-h-screen" : "min-h-[70vh] md:h-screen"} ${i > 0 ? "border-t border-grid-line md:border-t-0" : ""}`}
             style={isEditing ? { height: "100vh" } : undefined}
           >
             {slide}
@@ -1065,7 +1065,7 @@ export default function Portfolio() {
       {current > 0 && !isEditing && (
         <button
           onClick={prev}
-          className="absolute left-1 md:left-5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 md:w-10 md:h-10 flex items-center justify-center text-2xl md:text-3xl font-light text-foreground/30 hover:text-foreground/70 transition-colors"
+          className="absolute left-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 hidden md:flex items-center justify-center text-3xl font-light text-foreground/30 hover:text-foreground/70 transition-colors"
           aria-label="Previous slide"
         >
           &#8249;
@@ -1075,29 +1075,29 @@ export default function Portfolio() {
       {current < total - 1 && !isEditing && (
         <button
           onClick={next}
-          className="absolute right-1 md:right-5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 md:w-10 md:h-10 flex items-center justify-center text-2xl md:text-3xl font-light text-foreground/30 hover:text-foreground/70 transition-colors"
+          className="absolute right-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 hidden md:flex items-center justify-center text-3xl font-light text-foreground/30 hover:text-foreground/70 transition-colors"
           aria-label="Next slide"
         >
           &#8250;
         </button>
       )}
 
-      <div className="absolute bottom-3 md:bottom-5 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1">
+      <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 hidden md:flex items-center gap-1.5">
         {slides.map((_, i) => (
           <button
             key={i}
             onClick={() => scrollToSlide(i)}
-            className={`h-1 md:h-1.5 rounded-full transition-all duration-300 ${
+            className={`h-1.5 rounded-full transition-all duration-300 ${
               i === current
-                ? "bg-accent w-3.5 md:w-5"
-                : "bg-foreground/15 w-1 md:w-1.5 hover:bg-foreground/30"
+                ? "bg-accent w-5"
+                : "bg-foreground/15 w-1.5 hover:bg-foreground/30"
             }`}
             aria-label={`Go to slide ${i + 1}`}
           />
         ))}
       </div>
 
-      <div className="absolute bottom-3 md:bottom-5 right-4 md:right-8 z-20 text-[10px] md:text-[11px] text-secondary tracking-widest font-medium">
+      <div className="absolute bottom-5 right-8 z-20 hidden md:block text-[11px] text-secondary tracking-widest font-medium">
         {String(current + 1).padStart(2, "0")} /{" "}
         {String(total).padStart(2, "0")}
       </div>
