@@ -209,11 +209,11 @@ function EditToolbar() {
 
   return (
     <div className="edit-toolbar">
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-2 md:gap-3">
         <span className="inline-block w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-        <span className="text-sm font-semibold">Edit Mode</span>
+        <span className="text-xs md:text-sm font-semibold">Edit Mode</span>
       </div>
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-1.5 md:gap-2">
         {showReset ? (
           <>
             <span className="text-xs text-red-500 mr-1">
@@ -284,14 +284,14 @@ function HeroSlide() {
     <div className="relative h-full bg-white">
       {/* Grid decorations */}
       <div className="absolute top-14 left-0 right-0 h-px bg-grid-line" />
-      <div className="absolute bottom-[140px] left-0 right-0 h-px bg-grid-line" />
-      <div className="absolute top-0 bottom-0 left-20 w-px bg-grid-line" />
-      <div className="absolute top-[48px] left-[72px] w-[14px] h-[14px] bg-foreground" />
+      <div className="absolute bottom-[140px] left-0 right-0 h-px bg-grid-line hidden md:block" />
+      <div className="absolute top-0 bottom-0 left-6 md:left-20 w-px bg-grid-line" />
+      <div className="absolute top-[48px] left-[72px] w-[14px] h-[14px] bg-foreground hidden md:block" />
 
       {/* Content */}
-      <div className="relative z-10 h-full flex flex-col justify-between pl-12 pr-10 pt-24 pb-12 md:pl-28 md:pr-20 md:pb-16 overflow-y-auto no-scrollbar">
+      <div className="relative z-10 h-full flex flex-col justify-between px-6 pt-20 pb-10 md:pl-28 md:pr-20 md:pt-24 md:pb-16 overflow-y-auto no-scrollbar">
         {/* Title */}
-        <h1 className="text-[clamp(2.2rem,7.5vw,6.5rem)] font-black leading-[1.05] tracking-[-0.03em]">
+        <h1 className="text-[clamp(1.8rem,7.5vw,6.5rem)] font-black leading-[1.05] tracking-[-0.03em]">
           <ET path="hero.nameEn" inline />&apos;s
           <br />
           <ET path="hero.subtitle" inline />
@@ -335,28 +335,28 @@ function ProfileSlide() {
     <div className="relative h-full bg-white">
       {/* Grid decorations */}
       <div className="absolute top-14 left-0 right-0 h-px bg-grid-line" />
-      <div className="absolute bottom-14 left-0 right-0 h-px bg-grid-line" />
-      <div className="absolute top-0 bottom-0 left-20 w-px bg-grid-line" />
+      <div className="absolute bottom-14 left-0 right-0 h-px bg-grid-line hidden md:block" />
+      <div className="absolute top-0 bottom-0 left-6 md:left-20 w-px bg-grid-line" />
       <div className="absolute top-0 bottom-0 left-[30%] w-px bg-grid-line hidden md:block" />
       <div className="absolute top-[48px] left-[30%] w-[14px] h-[14px] bg-foreground hidden md:block" />
 
-      <div className="relative z-10 h-full flex flex-col md:flex-row pt-20 pb-16 pl-12 pr-10 md:pl-28 md:pr-16 gap-8 md:gap-0 overflow-y-auto no-scrollbar">
+      <div className="relative z-10 h-full flex flex-col md:flex-row px-6 pt-16 pb-12 md:pl-28 md:pr-16 md:pt-20 md:pb-16 gap-6 md:gap-0 overflow-y-auto no-scrollbar">
         {/* Left: Profile info */}
         <div className="md:w-[28%] flex flex-col md:pr-10 shrink-0">
           <img
             src="/images/profile.png"
             alt={t.profile.name}
-            className="w-[180px] h-[220px] rounded-sm object-cover shrink-0"
+            className="w-[120px] h-[150px] md:w-[180px] md:h-[220px] rounded-sm object-cover shrink-0"
           />
 
-          <h2 className="text-2xl font-bold mt-6">
+          <h2 className="text-xl md:text-2xl font-bold mt-4 md:mt-6">
             <ET path="profile.name" />
           </h2>
-          <p className="text-sm text-secondary mt-1">
+          <p className="text-xs md:text-sm text-secondary mt-1">
             <ET path="profile.nameEn" />
           </p>
 
-          <div className="mt-6 space-y-3 text-sm">
+          <div className="mt-4 md:mt-6 space-y-2 md:space-y-3 text-sm">
             <div className="flex items-center gap-3">
               <svg
                 className="w-4 h-4 text-secondary shrink-0"
@@ -395,13 +395,13 @@ function ProfileSlide() {
             </div>
           </div>
 
-          <p className="mt-8 text-sm leading-relaxed text-secondary hidden md:block">
+          <p className="mt-6 md:mt-8 text-sm leading-relaxed text-secondary hidden md:block">
             <ET path="about.greeting" />
           </p>
         </div>
 
         {/* Middle: Education + Experience */}
-        <div className="md:w-[36%] md:px-10 space-y-10">
+        <div className="md:w-[36%] md:px-10 space-y-6 md:space-y-10">
           {/* Education */}
           <div>
             <h3 className="flex items-center gap-2 text-base font-bold mb-5">
@@ -490,7 +490,7 @@ function ProfileSlide() {
         </div>
 
         {/* Right: Skills */}
-        <div className="md:w-[36%] md:px-10 space-y-10">
+        <div className="md:w-[36%] md:px-10 space-y-6 md:space-y-10">
           {/* Expertise */}
           <div>
             <h3 className="flex items-center gap-2 text-base font-bold mb-5">
@@ -592,14 +592,14 @@ function AboutSlide() {
     <div className="relative h-full bg-white">
       {/* Grid decorations */}
       <div className="absolute top-14 left-0 right-0 h-px bg-grid-line" />
-      <div className="absolute top-[46%] left-0 right-0 h-px bg-grid-line" />
-      <div className="absolute bottom-14 left-0 right-0 h-px bg-grid-line" />
-      <div className="absolute top-0 bottom-0 left-20 w-px bg-grid-line" />
-      <div className="absolute top-[calc(46%-8px)] left-[72px] w-[14px] h-[14px] bg-foreground" />
+      <div className="absolute top-[46%] left-0 right-0 h-px bg-grid-line hidden md:block" />
+      <div className="absolute bottom-14 left-0 right-0 h-px bg-grid-line hidden md:block" />
+      <div className="absolute top-0 bottom-0 left-6 md:left-20 w-px bg-grid-line" />
+      <div className="absolute top-[calc(46%-8px)] left-[72px] w-[14px] h-[14px] bg-foreground hidden md:block" />
 
-      <div className="relative z-10 h-full flex flex-col justify-between pl-12 pr-10 pt-24 pb-16 md:pl-28 md:pr-20 overflow-y-auto no-scrollbar">
+      <div className="relative z-10 h-full flex flex-col justify-between px-6 pt-16 pb-12 md:pl-28 md:pr-20 md:pt-24 md:pb-16 overflow-y-auto no-scrollbar">
         {/* Big statement */}
-        <h2 className="text-[clamp(1.5rem,4.5vw,3.2rem)] font-extrabold leading-[1.35] tracking-[-0.02em] max-w-[900px]">
+        <h2 className="text-[clamp(1.3rem,4.5vw,3.2rem)] font-extrabold leading-[1.35] tracking-[-0.02em] max-w-[900px]">
           {isEditing ? (
             <ET path="about.greeting" />
           ) : (
@@ -612,7 +612,7 @@ function AboutSlide() {
 
         {/* Description */}
         <div className="max-w-3xl">
-          <p className="text-base leading-[1.9] tracking-wide">
+          <p className="text-sm md:text-base leading-[1.8] md:leading-[1.9] tracking-wide">
             <ETA path="about.description" rows={5} />
           </p>
         </div>
@@ -636,21 +636,21 @@ function ProjectsSlide({
     <div className="relative h-full bg-white">
       {/* Grid decorations */}
       <div className="absolute top-14 left-0 right-0 h-px bg-grid-line" />
-      <div className="absolute top-[62%] left-0 right-0 h-px bg-grid-line" />
-      <div className="absolute bottom-14 left-0 right-0 h-px bg-grid-line" />
-      <div className="absolute top-0 bottom-0 left-20 w-px bg-grid-line" />
+      <div className="absolute top-[62%] left-0 right-0 h-px bg-grid-line hidden md:block" />
+      <div className="absolute bottom-14 left-0 right-0 h-px bg-grid-line hidden md:block" />
+      <div className="absolute top-0 bottom-0 left-6 md:left-20 w-px bg-grid-line" />
       <div className="absolute top-0 bottom-0 left-[33.33%] w-px bg-grid-line hidden md:block" />
       <div className="absolute top-0 bottom-0 left-[66.66%] w-px bg-grid-line hidden md:block" />
       <div className="absolute top-0 bottom-0 right-20 w-px bg-grid-line hidden md:block" />
       <div className="absolute top-[48px] right-[72px] w-[14px] h-[14px] bg-foreground hidden md:block" />
 
-      <div className="relative z-10 h-full px-12 pt-20 pb-16 md:px-24 overflow-y-auto no-scrollbar">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-0 h-full">
+      <div className="relative z-10 h-full px-6 pt-16 pb-12 md:px-24 md:pt-20 md:pb-16 overflow-y-auto no-scrollbar">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0 h-full">
           {t.projects.items.map((project, i) => (
             <button
               key={project.id}
               onClick={() => !isEditing && onNavigate(4 + i)}
-              className={`group flex flex-col text-left md:px-6 transition-opacity ${
+              className={`group flex flex-col text-left px-2 md:px-6 transition-opacity ${
                 isEditing
                   ? "cursor-default"
                   : "cursor-pointer hover:opacity-80"
@@ -658,14 +658,14 @@ function ProjectsSlide({
             >
               {/* Image placeholder */}
               <div
-                className="w-full aspect-[4/3] rounded-sm mb-6 transition-transform duration-300 group-hover:scale-[1.02]"
+                className="w-full aspect-[4/3] rounded-sm mb-4 md:mb-6 transition-transform duration-300 group-hover:scale-[1.02]"
                 style={{
                   background: GRADIENTS[i % GRADIENTS.length],
                 }}
               />
 
               {/* Info */}
-              <h3 className="text-xl font-bold mb-2">Case {i + 1}</h3>
+              <h3 className="text-lg md:text-xl font-bold mb-2">Case {i + 1}</h3>
               <p className="text-sm mb-1">
                 <span className="text-secondary mr-1">&bull;</span>
                 <ET path={`projects.items[${i}].summary`} />
@@ -700,15 +700,15 @@ function ProjectDetailSlide({
   return (
     <div className="relative h-full bg-white">
       {/* Grid decorations */}
-      <div className="absolute top-14 left-0 right-0 h-px bg-grid-line" />
-      <div className="absolute bottom-14 left-0 right-0 h-px bg-grid-line" />
-      <div className="absolute top-0 bottom-0 left-20 w-px bg-grid-line" />
+      <div className="absolute top-14 left-0 right-0 h-px bg-grid-line hidden md:block" />
+      <div className="absolute bottom-14 left-0 right-0 h-px bg-grid-line hidden md:block" />
+      <div className="absolute top-0 bottom-0 left-6 md:left-20 w-px bg-grid-line hidden md:block" />
       <div className="absolute top-0 bottom-0 left-[42%] w-px bg-grid-line hidden md:block" />
 
       <div className="relative z-10 h-full flex flex-col md:flex-row overflow-y-auto no-scrollbar">
         {/* Left: Image */}
         <div
-          className="md:w-[42%] h-[240px] md:h-full shrink-0"
+          className="md:w-[42%] h-[160px] md:h-full shrink-0"
           style={{
             background:
               GRADIENTS[(index - 1) % GRADIENTS.length] || GRADIENTS[0],
@@ -716,29 +716,29 @@ function ProjectDetailSlide({
         />
 
         {/* Right: Info */}
-        <div className="md:w-[58%] flex flex-col justify-center px-10 py-12 md:px-16 md:py-20 overflow-y-auto no-scrollbar">
-          <p className="text-sm font-semibold text-secondary mb-4">
+        <div className="md:w-[58%] flex flex-col justify-center px-6 py-8 md:px-16 md:py-20 overflow-y-auto no-scrollbar">
+          <p className="text-xs md:text-sm font-semibold text-secondary mb-3 md:mb-4">
             Case {index}
           </p>
 
-          <h2 className="text-2xl md:text-[2.2rem] font-extrabold mb-3 leading-tight">
+          <h2 className="text-xl md:text-[2.2rem] font-extrabold mb-2 md:mb-3 leading-tight">
             <ET path={`projects.items[${pi}].title`} />
           </h2>
 
           {isEditing ? (
-            <p className="text-sm text-secondary mb-10">
+            <p className="text-xs md:text-sm text-secondary mb-6 md:mb-10">
               <ET path={`projects.items[${pi}].stack`} className="text-secondary" />
             </p>
           ) : (
-            <p className="text-sm text-secondary mb-10">
+            <p className="text-xs md:text-sm text-secondary mb-6 md:mb-10">
               {project.stack.map((s) => `#${s}`).join("  ")}
             </p>
           )}
 
           {/* Info table */}
-          <div className="space-y-6">
-            <div className="flex gap-5 items-start">
-              <span className="inline-flex items-center justify-center px-3 py-1 bg-foreground text-white text-xs font-semibold rounded-[2px] w-[84px] shrink-0">
+          <div className="space-y-4 md:space-y-6">
+            <div className="flex gap-3 md:gap-5 items-start">
+              <span className="inline-flex items-center justify-center px-2 md:px-3 py-1 bg-foreground text-white text-[10px] md:text-xs font-semibold rounded-[2px] w-[72px] md:w-[84px] shrink-0">
                 일시
               </span>
               <span className="text-sm pt-0.5 flex-1 min-w-0">
@@ -746,8 +746,8 @@ function ProjectDetailSlide({
               </span>
             </div>
 
-            <div className="flex gap-5 items-start">
-              <span className="inline-flex items-center justify-center px-3 py-1 bg-foreground text-white text-xs font-semibold rounded-[2px] w-[84px] shrink-0">
+            <div className="flex gap-3 md:gap-5 items-start">
+              <span className="inline-flex items-center justify-center px-2 md:px-3 py-1 bg-foreground text-white text-[10px] md:text-xs font-semibold rounded-[2px] w-[72px] md:w-[84px] shrink-0">
                 클라이언트
               </span>
               <span className="text-sm pt-0.5 flex-1 min-w-0">
@@ -755,8 +755,8 @@ function ProjectDetailSlide({
               </span>
             </div>
 
-            <div className="flex gap-5 items-start">
-              <span className="inline-flex items-center justify-center px-3 py-1 bg-foreground text-white text-xs font-semibold rounded-[2px] w-[84px] shrink-0">
+            <div className="flex gap-3 md:gap-5 items-start">
+              <span className="inline-flex items-center justify-center px-2 md:px-3 py-1 bg-foreground text-white text-[10px] md:text-xs font-semibold rounded-[2px] w-[72px] md:w-[84px] shrink-0">
                 역할
               </span>
               <span className="text-sm pt-0.5 flex-1 min-w-0">
@@ -764,8 +764,8 @@ function ProjectDetailSlide({
               </span>
             </div>
 
-            <div className="flex gap-5 items-start">
-              <span className="inline-flex items-center justify-center px-3 py-1 bg-foreground text-white text-xs font-semibold rounded-[2px] w-[84px] shrink-0">
+            <div className="flex gap-3 md:gap-5 items-start">
+              <span className="inline-flex items-center justify-center px-2 md:px-3 py-1 bg-foreground text-white text-[10px] md:text-xs font-semibold rounded-[2px] w-[72px] md:w-[84px] shrink-0">
                 활동소개
               </span>
               <div className="text-sm leading-relaxed pt-0.5 flex-1 min-w-0">
@@ -778,7 +778,7 @@ function ProjectDetailSlide({
           </div>
 
           {/* Contributions */}
-          <div className="mt-10 space-y-2">
+          <div className="mt-6 md:mt-10 space-y-2">
             {project.contributions.map((c, j) => (
               <div key={j} className="flex items-center gap-2">
                 <span className="text-secondary shrink-0">&bull;</span>
@@ -838,23 +838,23 @@ function ContactSlide() {
     <div className="relative h-full bg-white">
       {/* Grid decorations */}
       <div className="absolute top-14 left-0 right-0 h-px bg-grid-line" />
-      <div className="absolute bottom-14 left-0 right-0 h-px bg-grid-line" />
-      <div className="absolute top-0 bottom-0 left-20 w-px bg-grid-line" />
-      <div className="absolute top-[48px] left-[72px] w-[14px] h-[14px] bg-accent" />
+      <div className="absolute bottom-14 left-0 right-0 h-px bg-grid-line hidden md:block" />
+      <div className="absolute top-0 bottom-0 left-6 md:left-20 w-px bg-grid-line" />
+      <div className="absolute top-[48px] left-[72px] w-[14px] h-[14px] bg-accent hidden md:block" />
 
-      <div className="relative z-10 h-full flex flex-col justify-center pl-12 pr-10 md:pl-28 md:pr-20 overflow-y-auto no-scrollbar">
-        <h2 className="text-4xl md:text-6xl font-black mb-16 tracking-[-0.03em]">
+      <div className="relative z-10 h-full flex flex-col justify-center px-6 md:pl-28 md:pr-20 overflow-y-auto no-scrollbar">
+        <h2 className="text-3xl md:text-6xl font-black mb-10 md:mb-16 tracking-[-0.03em]">
           CONTACT
         </h2>
 
         <div className="space-y-0 max-w-xl">
           {t.contact.items.map((item, i) => (
             <div key={i} className="relative group">
-              <div className="flex items-center gap-8 py-5">
-                <span className="text-sm text-secondary w-16 shrink-0 tracking-wide">
+              <div className="flex items-center gap-4 md:gap-8 py-4 md:py-5">
+                <span className="text-xs md:text-sm text-secondary w-14 md:w-16 shrink-0 tracking-wide">
                   <ET path={`contact.items[${i}].label`} />
                 </span>
-                <span className="text-base font-medium flex-1 min-w-0">
+                <span className="text-sm md:text-base font-medium flex-1 min-w-0">
                   <ET path={`contact.items[${i}].value`} />
                 </span>
                 {isEditing && t.contact.items.length > 1 && (
@@ -979,7 +979,7 @@ export default function Portfolio() {
       {!isEditing && (
         <button
           onClick={() => setShowPasswordModal(true)}
-          className="absolute top-3 right-5 z-30 flex items-center gap-1.5 px-3 py-1.5 rounded bg-white/80 border border-grid-line hover:bg-accent hover:text-white hover:border-accent transition-all duration-200 group"
+          className="absolute top-2 right-3 md:top-3 md:right-5 z-30 flex items-center gap-1 md:gap-1.5 px-2 py-1 md:px-3 md:py-1.5 rounded bg-white/80 border border-grid-line hover:bg-accent hover:text-white hover:border-accent transition-all duration-200 group"
           aria-label="Edit"
         >
           <svg
@@ -1024,7 +1024,7 @@ export default function Portfolio() {
       {current > 0 && !isEditing && (
         <button
           onClick={prev}
-          className="absolute left-3 md:left-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center text-3xl font-light text-foreground/30 hover:text-foreground/70 transition-colors"
+          className="absolute left-1 md:left-5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 md:w-10 md:h-10 flex items-center justify-center text-2xl md:text-3xl font-light text-foreground/30 hover:text-foreground/70 transition-colors"
           aria-label="Previous slide"
         >
           &#8249;
@@ -1034,29 +1034,29 @@ export default function Portfolio() {
       {current < total - 1 && !isEditing && (
         <button
           onClick={next}
-          className="absolute right-3 md:right-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center text-3xl font-light text-foreground/30 hover:text-foreground/70 transition-colors"
+          className="absolute right-1 md:right-5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 md:w-10 md:h-10 flex items-center justify-center text-2xl md:text-3xl font-light text-foreground/30 hover:text-foreground/70 transition-colors"
           aria-label="Next slide"
         >
           &#8250;
         </button>
       )}
 
-      <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5">
+      <div className="absolute bottom-3 md:bottom-5 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1">
         {slides.map((_, i) => (
           <button
             key={i}
             onClick={() => scrollToSlide(i)}
-            className={`h-1.5 rounded-full transition-all duration-300 ${
+            className={`h-1 md:h-1.5 rounded-full transition-all duration-300 ${
               i === current
-                ? "bg-accent w-5"
-                : "bg-foreground/15 w-1.5 hover:bg-foreground/30"
+                ? "bg-accent w-3.5 md:w-5"
+                : "bg-foreground/15 w-1 md:w-1.5 hover:bg-foreground/30"
             }`}
             aria-label={`Go to slide ${i + 1}`}
           />
         ))}
       </div>
 
-      <div className="absolute bottom-5 right-6 md:right-8 z-20 text-[11px] text-secondary tracking-widest font-medium">
+      <div className="absolute bottom-3 md:bottom-5 right-4 md:right-8 z-20 text-[10px] md:text-[11px] text-secondary tracking-widest font-medium">
         {String(current + 1).padStart(2, "0")} /{" "}
         {String(total).padStart(2, "0")}
       </div>
