@@ -51,7 +51,17 @@
   --secondary: #666666;
   --grid-line: #DDDDDD;
   --accent: #33425f;
+  --card-bg: #FFFFFF;
   --font-sans: 'Pretendard', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+:root.dark {
+  --background: #121212;
+  --foreground: #E8E8E8;
+  --secondary: #999999;
+  --grid-line: #2A2A2A;
+  --accent: #7B8FAF;
+  --card-bg: #1A1A1A;
 }
 
 @theme inline {
@@ -60,6 +70,7 @@
   --color-secondary: var(--secondary);
   --color-grid-line: var(--grid-line);
   --color-accent: var(--accent);
+  --color-card-bg: var(--card-bg);
   --font-sans: var(--font-sans);
 }
 
@@ -174,7 +185,7 @@ body {
   z-index: 100;
 }
 .modal-box {
-  background: white;
+  background: var(--card-bg);
   border-radius: 8px;
   padding: 32px;
   width: 340px;
@@ -188,7 +199,7 @@ body {
   left: 0;
   right: 0;
   z-index: 50;
-  background: rgba(255, 255, 255, 0.92);
+  background: color-mix(in srgb, var(--card-bg) 92%, transparent);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--grid-line);
   padding: 10px 24px;

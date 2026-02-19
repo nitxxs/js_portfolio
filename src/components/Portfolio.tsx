@@ -175,7 +175,7 @@ function PasswordModal() {
           }}
           onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
           placeholder="Password"
-          className="w-full border border-gray-300 rounded px-3 py-2 text-sm outline-none focus:border-accent"
+          className="w-full border border-grid-line rounded px-3 py-2 text-sm outline-none focus:border-accent bg-transparent"
         />
         {error && (
           <p className="text-xs text-red-500 mt-2">
@@ -185,7 +185,7 @@ function PasswordModal() {
         <div className="flex gap-2 mt-5">
           <button
             onClick={() => setShowPasswordModal(false)}
-            className="flex-1 px-4 py-2 text-sm border border-gray-300 rounded hover:bg-gray-50 transition-colors"
+            className="flex-1 px-4 py-2 text-sm border border-grid-line rounded hover:opacity-80 transition-colors"
           >
             취소
           </button>
@@ -231,7 +231,7 @@ function EditToolbar() {
             </button>
             <button
               onClick={() => setShowReset(false)}
-              className="px-3 py-1.5 text-xs border border-gray-300 rounded hover:bg-gray-50 transition-colors"
+              className="px-3 py-1.5 text-xs border border-grid-line rounded hover:opacity-80 transition-colors"
             >
               아니오
             </button>
@@ -249,7 +249,7 @@ function EditToolbar() {
                 revertContent();
                 exitEditMode();
               }}
-              className="px-3 py-1.5 text-xs border border-gray-300 rounded hover:bg-gray-50 transition-colors"
+              className="px-3 py-1.5 text-xs border border-grid-line rounded hover:opacity-80 transition-colors"
             >
               취소
             </button>
@@ -281,7 +281,7 @@ function HeroSlide() {
     .map((f: string) => `#${f.replace(/\s+/g, "")}`);
 
   return (
-    <div className="relative h-full bg-white">
+    <div className="relative h-full bg-card-bg">
       {/* Grid decorations */}
       <div className="absolute top-14 left-0 right-0 h-px bg-grid-line" />
       <div className="absolute bottom-[140px] left-0 right-0 h-px bg-grid-line hidden md:block" />
@@ -332,7 +332,7 @@ function ProfileSlide() {
   const { isEditing } = useEditMode();
 
   return (
-    <div className="relative h-full bg-white">
+    <div className="relative h-full bg-card-bg">
       {/* Grid decorations */}
       <div className="absolute top-14 left-0 right-0 h-px bg-grid-line" />
       <div className="absolute bottom-14 left-0 right-0 h-px bg-grid-line hidden md:block" />
@@ -589,7 +589,7 @@ function AboutSlide() {
   const { isEditing } = useEditMode();
 
   return (
-    <div className="relative h-full bg-white">
+    <div className="relative h-full bg-card-bg">
       {/* Grid decorations */}
       <div className="absolute top-14 left-0 right-0 h-px bg-grid-line" />
       <div className="absolute top-[46%] left-0 right-0 h-px bg-grid-line hidden md:block" />
@@ -633,7 +633,7 @@ function ProjectsSlide({
   const { isEditing } = useEditMode();
 
   return (
-    <div className="relative h-full bg-white">
+    <div className="relative h-full bg-card-bg">
       {/* Grid decorations */}
       <div className="absolute top-14 left-0 right-0 h-px bg-grid-line" />
       <div className="absolute top-[62%] left-0 right-0 h-px bg-grid-line hidden md:block" />
@@ -698,7 +698,7 @@ function ProjectDetailSlide({
   const pi = projectIndex;
 
   return (
-    <div className="relative h-full bg-white">
+    <div className="relative h-full bg-card-bg">
       {/* Grid decorations */}
       <div className="absolute top-14 left-0 right-0 h-px bg-grid-line hidden md:block" />
       <div className="absolute bottom-14 left-0 right-0 h-px bg-grid-line hidden md:block" />
@@ -738,7 +738,7 @@ function ProjectDetailSlide({
           {/* Info table */}
           <div className="space-y-4 md:space-y-6">
             <div className="flex gap-3 md:gap-5 items-start">
-              <span className="inline-flex items-center justify-center px-2 md:px-3 py-1 bg-foreground text-white text-[10px] md:text-xs font-semibold rounded-[2px] w-[72px] md:w-[84px] shrink-0">
+              <span className="inline-flex items-center justify-center px-2 md:px-3 py-1 bg-accent text-white text-[10px] md:text-xs font-semibold rounded-[2px] w-[72px] md:w-[84px] shrink-0">
                 일시
               </span>
               <span className="text-sm pt-0.5 flex-1 min-w-0">
@@ -747,7 +747,7 @@ function ProjectDetailSlide({
             </div>
 
             <div className="flex gap-3 md:gap-5 items-start">
-              <span className="inline-flex items-center justify-center px-2 md:px-3 py-1 bg-foreground text-white text-[10px] md:text-xs font-semibold rounded-[2px] w-[72px] md:w-[84px] shrink-0">
+              <span className="inline-flex items-center justify-center px-2 md:px-3 py-1 bg-accent text-white text-[10px] md:text-xs font-semibold rounded-[2px] w-[72px] md:w-[84px] shrink-0">
                 클라이언트
               </span>
               <span className="text-sm pt-0.5 flex-1 min-w-0">
@@ -756,7 +756,7 @@ function ProjectDetailSlide({
             </div>
 
             <div className="flex gap-3 md:gap-5 items-start">
-              <span className="inline-flex items-center justify-center px-2 md:px-3 py-1 bg-foreground text-white text-[10px] md:text-xs font-semibold rounded-[2px] w-[72px] md:w-[84px] shrink-0">
+              <span className="inline-flex items-center justify-center px-2 md:px-3 py-1 bg-accent text-white text-[10px] md:text-xs font-semibold rounded-[2px] w-[72px] md:w-[84px] shrink-0">
                 역할
               </span>
               <span className="text-sm pt-0.5 flex-1 min-w-0">
@@ -765,7 +765,7 @@ function ProjectDetailSlide({
             </div>
 
             <div className="flex gap-3 md:gap-5 items-start">
-              <span className="inline-flex items-center justify-center px-2 md:px-3 py-1 bg-foreground text-white text-[10px] md:text-xs font-semibold rounded-[2px] w-[72px] md:w-[84px] shrink-0">
+              <span className="inline-flex items-center justify-center px-2 md:px-3 py-1 bg-accent text-white text-[10px] md:text-xs font-semibold rounded-[2px] w-[72px] md:w-[84px] shrink-0">
                 활동소개
               </span>
               <div className="text-sm leading-relaxed pt-0.5 flex-1 min-w-0">
@@ -835,7 +835,7 @@ function ContactSlide() {
   const { isEditing } = useEditMode();
 
   return (
-    <div className="relative h-full bg-white">
+    <div className="relative h-full bg-card-bg">
       {/* Grid decorations */}
       <div className="absolute top-14 left-0 right-0 h-px bg-grid-line" />
       <div className="absolute bottom-14 left-0 right-0 h-px bg-grid-line hidden md:block" />
@@ -884,12 +884,33 @@ function ContactSlide() {
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    MAIN PORTFOLIO COMPONENT
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+const DARK_KEY = "portfolio-dark";
+
 export default function Portfolio() {
   const [current, setCurrent] = useState(0);
+  const [dark, setDark] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const slideRefs = useRef<(HTMLDivElement | null)[]>([]);
   const { t } = useLanguage();
   const { isEditing, showPasswordModal, setShowPasswordModal } = useEditMode();
+
+  // Sync dark class on <html>
+  useEffect(() => {
+    const saved = localStorage.getItem(DARK_KEY);
+    if (saved === "true") {
+      setDark(true);
+      document.documentElement.classList.add("dark");
+    }
+  }, []);
+
+  const toggleDark = useCallback(() => {
+    setDark((prev) => {
+      const next = !prev;
+      document.documentElement.classList.toggle("dark", next);
+      localStorage.setItem(DARK_KEY, String(next));
+      return next;
+    });
+  }, []);
 
   const slides = [
     <HeroSlide key="hero" />,
@@ -971,35 +992,55 @@ export default function Portfolio() {
   }, [next, prev, isEditing]);
 
   return (
-    <div className="relative w-screen h-screen bg-[#F5F5F5] select-none">
+    <div className="relative w-screen h-screen bg-background select-none">
       {isEditing && <EditToolbar />}
       {showPasswordModal && <PasswordModal />}
 
-      {/* Edit button — visible on all pages */}
-      {!isEditing && (
+      {/* Top-right buttons */}
+      <div className="absolute top-2 right-3 md:top-3 md:right-5 z-30 flex items-center gap-1.5 md:gap-2">
+        {/* Dark mode toggle */}
         <button
-          onClick={() => setShowPasswordModal(true)}
-          className="absolute top-2 right-3 md:top-3 md:right-5 z-30 flex items-center gap-1 md:gap-1.5 px-2 py-1 md:px-3 md:py-1.5 rounded bg-white/80 border border-grid-line hover:bg-accent hover:text-white hover:border-accent transition-all duration-200 group"
-          aria-label="Edit"
+          onClick={toggleDark}
+          className="flex items-center justify-center w-7 h-7 md:w-8 md:h-8 rounded bg-card-bg/80 border border-grid-line hover:bg-accent hover:text-white hover:border-accent transition-all duration-200 group"
+          aria-label="Toggle dark mode"
         >
-          <svg
-            className="w-3.5 h-3.5 text-secondary group-hover:text-white transition-colors"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={1.8}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M16.862 3.487a2.1 2.1 0 1 1 2.97 2.97L7.5 18.79l-4 1 1-4L16.862 3.487z"
-            />
-          </svg>
-          <span className="text-xs font-medium text-secondary group-hover:text-white transition-colors">
-            Edit
-          </span>
+          {dark ? (
+            <svg className="w-3.5 h-3.5 md:w-4 md:h-4 text-secondary group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1m0 16v1m8.66-13.66l-.71.71M4.05 19.95l-.71.71M21 12h-1M4 12H3m16.66 7.66l-.71-.71M4.05 4.05l-.71-.71M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+          ) : (
+            <svg className="w-3.5 h-3.5 md:w-4 md:h-4 text-secondary group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+          )}
         </button>
-      )}
+
+        {/* Edit button */}
+        {!isEditing && (
+          <button
+            onClick={() => setShowPasswordModal(true)}
+            className="flex items-center gap-1 md:gap-1.5 px-2 py-1 md:px-3 md:py-1.5 rounded bg-card-bg/80 border border-grid-line hover:bg-accent hover:text-white hover:border-accent transition-all duration-200 group"
+            aria-label="Edit"
+          >
+            <svg
+              className="w-3.5 h-3.5 text-secondary group-hover:text-white transition-colors"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={1.8}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M16.862 3.487a2.1 2.1 0 1 1 2.97 2.97L7.5 18.79l-4 1 1-4L16.862 3.487z"
+              />
+            </svg>
+            <span className="text-xs font-medium text-secondary group-hover:text-white transition-colors">
+              Edit
+            </span>
+          </button>
+        )}
+      </div>
 
       <div
         ref={containerRef}
