@@ -1,26 +1,204 @@
 @import "tailwindcss";
 
+/* ── Pretendard Font Faces ── */
+@font-face {
+  font-family: 'Pretendard';
+  src: url('/fonts/Pretendard-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Pretendard';
+  src: url('/fonts/Pretendard-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Pretendard';
+  src: url('/fonts/Pretendard-SemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Pretendard';
+  src: url('/fonts/Pretendard-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Pretendard';
+  src: url('/fonts/Pretendard-ExtraBold.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Pretendard';
+  src: url('/fonts/Pretendard-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── Design Tokens ── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #F5F5F5;
+  --foreground: #111111;
+  --secondary: #666666;
+  --grid-line: #DDDDDD;
+  --accent: #33425f;
+  --font-sans: 'Pretendard', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-secondary: var(--secondary);
+  --color-grid-line: var(--grid-line);
+  --color-accent: var(--accent);
+  --font-sans: var(--font-sans);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+/* ── Scrollbar Hide ── */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ── Edit Mode Styles ── */
+.edit-input {
+  background: transparent;
+  border-bottom: 1.5px solid rgba(51, 66, 95, 0.35);
+  outline: none;
+  width: 100%;
+  min-width: 0;
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  padding: 0;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+.edit-input:focus {
+  border-bottom-color: var(--accent);
+}
+
+/* Inline variant — auto-sizes to content, stays in text flow */
+.edit-input-inline {
+  background: transparent;
+  border-bottom: 1.5px solid rgba(51, 66, 95, 0.35);
+  outline: none;
+  display: inline;
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  padding: 0 1px;
+  field-sizing: content;
+  min-width: 1ch;
+  transition: border-color 0.2s;
+}
+.edit-input-inline:focus {
+  border-bottom-color: var(--accent);
+}
+
+.edit-textarea {
+  background: rgba(51, 66, 95, 0.04);
+  border: 1px solid rgba(51, 66, 95, 0.2);
+  border-radius: 4px;
+  outline: none;
+  width: 100%;
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  padding: 6px 8px;
+  resize: vertical;
+  min-height: 60px;
+  transition: border-color 0.2s;
+}
+.edit-textarea:focus {
+  border-color: var(--accent);
+}
+
+.edit-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 3px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+.edit-badge-add {
+  background: rgba(51, 66, 95, 0.08);
+  color: var(--accent);
+}
+.edit-badge-add:hover {
+  background: rgba(51, 66, 95, 0.18);
+}
+.edit-badge-remove {
+  background: rgba(220, 53, 69, 0.08);
+  color: #dc3545;
+}
+.edit-badge-remove:hover {
+  background: rgba(220, 53, 69, 0.18);
+}
+
+/* Password modal overlay */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+.modal-box {
+  background: white;
+  border-radius: 8px;
+  padding: 32px;
+  width: 340px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* Edit toolbar */
+.edit-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--grid-line);
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  animation: slideDown 0.25s ease;
+}
+@keyframes slideDown {
+  from { transform: translateY(-100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
