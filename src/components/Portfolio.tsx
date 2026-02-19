@@ -644,7 +644,7 @@ function ProjectsSlide({
       <div className="absolute top-0 bottom-0 right-20 w-px bg-grid-line hidden md:block" />
       <div className="absolute top-[48px] right-[72px] w-[14px] h-[14px] bg-foreground hidden md:block" />
 
-      <div className="relative z-10 h-full px-6 pt-16 pb-12 md:px-24 md:pt-20 md:pb-16 overflow-y-auto no-scrollbar">
+      <div className="relative z-10 h-full px-6 pt-16 pb-20 md:px-24 md:pt-20 md:pb-16 overflow-y-auto no-scrollbar">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0 h-full">
           {t.projects.items.map((project, i) => (
             <button
@@ -705,18 +705,18 @@ function ProjectDetailSlide({
       <div className="absolute top-0 bottom-0 left-6 md:left-20 w-px bg-grid-line hidden md:block" />
       <div className="absolute top-0 bottom-0 left-[42%] w-px bg-grid-line hidden md:block" />
 
-      <div className="relative z-10 h-full flex flex-col md:flex-row overflow-y-auto no-scrollbar">
-        {/* Left: Image */}
+      <div className="relative z-10 flex flex-col md:flex-row md:h-full">
+        {/* Top on mobile / Left on desktop: Image */}
         <div
-          className="md:w-[42%] h-[160px] md:h-full shrink-0"
+          className="w-full md:w-[42%] h-[200px] md:h-full shrink-0"
           style={{
             background:
               GRADIENTS[(index - 1) % GRADIENTS.length] || GRADIENTS[0],
           }}
         />
 
-        {/* Right: Info */}
-        <div className="md:w-[58%] flex flex-col justify-center px-6 py-8 md:px-16 md:py-20 overflow-y-auto no-scrollbar">
+        {/* Below on mobile / Right on desktop: Info */}
+        <div className="w-full md:w-[58%] flex flex-col justify-center px-6 py-8 md:px-16 md:py-20 md:overflow-y-auto md:no-scrollbar">
           <p className="text-xs md:text-sm font-semibold text-secondary mb-3 md:mb-4">
             Case {index}
           </p>
