@@ -597,7 +597,7 @@ function AboutSlide() {
       <div className="absolute top-0 bottom-0 left-6 md:left-20 w-px bg-grid-line" />
       <div className="absolute top-[calc(46%-8px)] left-[72px] w-[14px] h-[14px] bg-foreground hidden md:block" />
 
-      <div className="relative z-10 h-full flex flex-col justify-between px-6 pt-16 pb-12 md:pl-28 md:pr-20 md:pt-24 md:pb-16 overflow-y-auto no-scrollbar">
+      <div className="relative z-10 h-full flex flex-col justify-between gap-12 md:gap-0 px-6 pt-16 pb-12 md:pl-28 md:pr-20 md:pt-24 md:pb-16 overflow-y-auto no-scrollbar">
         {/* Big statement */}
         <h2 className="text-[clamp(1.3rem,4.5vw,3.2rem)] font-extrabold leading-[1.35] tracking-[-0.02em] max-w-[900px]">
           {isEditing ? (
