@@ -8,6 +8,7 @@ const ko = {
   profile: {
     name: "김재성",
     nameEn: "Kim Jae Sung",
+    birth: "1998.06.17",
     phone: "010-9978-9504",
     email: "rlawotjd9504@naver.com",
     education: [
@@ -15,7 +16,17 @@ const ko = {
         period: "2026.02",
         school: "동국대학교 일반대학원",
         major: "컴퓨터-AI학과, 게임공학 전공",
-        degree: "졸업",
+        degree: "석사 졸업",
+      },
+    ],
+    paper: [
+      {
+        title:
+          "Joint Optimization-Based Texture and Geometry Enhancement Method for Single-Image-Based 3D Content Creation",
+      },
+      {
+        title:
+          "농구게임 강화학습을 위한 역할 특화 경험 우선순위 샘플링 연구",
       },
     ],
   },
@@ -27,8 +38,8 @@ const ko = {
   skills: {
     categories: [
       {
-        name: "AI & Frameworks",
-        items: ["Reinforcement Learning", "Q-learning", "QMIX", "DQN"],
+        name: "Reinforcement Learning",
+        items: ["PPO", "QMIX", "Q-Learning", "DQN"],
       },
       {
         name: "3D Reconstruction",
@@ -36,7 +47,7 @@ const ko = {
       },
       {
         name: "Programming",
-        items: ["Python", "Deep Learning", "PyTorch", "CUDA"],
+        items: ["Python", "PyTorch", "CUDA"],
       },
       {
         name: "Development Tools",
@@ -44,23 +55,12 @@ const ko = {
       },
     ],
   },
-  experience: {
+  license: {
     items: [
-      {
-        period: "2018 — 2021",
-        role: "사원",
-        org: "Borcelle 마케팅팀",
-      },
-      {
-        period: "2021 — 2025",
-        role: "과장",
-        org: "Borcelle 마케팅팀",
-      },
-      {
-        period: "2025 — 2027",
-        role: "팀장",
-        org: "Fauget 마케팅팀",
-      },
+      { name: "TOEIC Speaking IM3" },
+      { name: "네트워크관리사 2급" },
+      { name: "행정관리사 3급" },
+      { name: "2종보통운전면허" },
     ],
   },
   projects: {
@@ -69,25 +69,27 @@ const ko = {
         id: "joycity",
         title: "프리스타일 게임인공지능 연구개발",
         org: "㈜ 조이시티",
-        role: "연구개발",
-        period: "2023",
+        role: "강화학습 기반 게임 AI 연구개발",
+        period: "2024~2025",
         summary: "프리스타일 게임인공지능 연구개발",
         description:
-          "게임 내 인공지능 에이전트의 행동 패턴을 분석하고 강화학습 기반의 전략적 의사결정 시스템을 연구개발하였습니다. 실시간 게임 환경에서의 최적 행동 정책 학습과 적용을 목표로 진행하였습니다.",
+          "프리스타일2 게임 내에서 플레이어와 함께 게임을 진행하며 FSM을 대체 할 수 있는 강화학습 기반의 인공지능 AI를 연구개발 하였습니다. \n 프리스타일2 게임과 동일한 규칙을 가지고 있는 AI 에이전트 명령 인터페이스 시뮬레이터를 기반으로 학습하였습니다.",
         contributions: [
           "강화학습 기반 게임 AI 에이전트 설계",
-          "실시간 의사결정 시스템 구현",
           "게임 환경 시뮬레이션 구축",
         ],
-        stack: ["Python", "PyTorch", "Unity", "RL"],
+        results: [
+          "성과를 입력해주세요.",
+        ],
+        stack: ["Reinforcement Learning", "QMIX", "DQN"],
       },
       {
         id: "add",
-        title: "군집 학습 / 모의입증 시뮬레이터 구현",
+        title: "군집 학습 / 모의입증 시뮬레이터 구현 (ADD)",
         org: "국방과학연구소 (ADD)",
-        role: "연구개발",
-        period: "2023",
-        summary: "군집 학습 / 모의입증 시뮬레이터 구현",
+        role: "멀티에이전트 강화학습 연구개발",
+        period: "2024",
+        summary: "군집 학습 / 모의입증 시뮬레이터 구현 (ADD)",
         description:
           "다중 에이전트 환경에서의 군집 학습 알고리즘을 연구하고, 모의입증을 위한 시뮬레이션 환경을 구축하였습니다. QMIX 등 멀티에이전트 강화학습 기법을 적용하여 협력적 행동 전략을 학습시켰습니다.",
         contributions: [
@@ -95,13 +97,16 @@ const ko = {
           "모의입증 시뮬레이터 설계 및 구현",
           "군집 행동 전략 최적화",
         ],
-        stack: ["Python", "PyTorch", "QMIX", "Simulation"],
+        results: [
+          "성과를 입력해주세요.",
+        ],
+        stack: ["NERF", "3D Reconstruction", "Instant Mesh"],
       },
       {
         id: "dongguk",
         title: "딥러닝 알고리즘 기반 3D 에셋 생성 시스템",
         org: "동국대학교",
-        role: "연구개발",
+        role: "3D 재구성 알고리즘 연구개발",
         period: "2024",
         summary: "딥러닝 알고리즘 기반 3D 에셋 생성 시스템",
         description:
@@ -111,7 +116,10 @@ const ko = {
           "2D to 3D 변환 알고리즘 연구",
           "3D 에셋 품질 평가 시스템 구축",
         ],
-        stack: ["Python", "PyTorch", "NeRF", "CUDA"],
+        results: [
+          "성과를 입력해주세요.",
+        ],
+        stack: ["3D reconstruction", "Game", "Unreal", "Instant Mesh"],
       },
     ],
   },
@@ -120,7 +128,7 @@ const ko = {
       { label: "Name", value: "김재성" },
       { label: "Phone", value: "010-9978-9504" },
       { label: "Email", value: "rlawotjd9504@naver.com" },
-      { label: "SNS", value: "@reallygreatsite" },
+      // { label: "SNS", value: "@reallygreatsite" },
     ],
   },
 };

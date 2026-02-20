@@ -14,6 +14,7 @@ type Project = {
   summary: string;
   description: string;
   contributions: string[];
+  results: string[];
   stack: string[];
 };
 
@@ -25,7 +26,7 @@ const GRADIENTS = [
 ];
 
 const SKILL_LEVELS: Record<string, number> = {
-  "AI & Frameworks": 5,
+  "Reinforcement Learning": 5,
   "3D Reconstruction": 4,
   Programming: 5,
   "Development Tools": 4,
@@ -98,7 +99,7 @@ function ETA({
   const { isEditing } = useEditMode();
   const { t, updateField } = useLanguage();
   const value = getByPath(t, path) as string;
-  if (!isEditing) return <>{value}</>;
+  if (!isEditing) return <span className="whitespace-pre-line">{value}</span>;
   return (
     <textarea
       value={value}
@@ -368,6 +369,24 @@ function ProfileSlide() {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth={1.5}
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                />
+              </svg>
+              <span className="flex-1 min-w-0">
+                <ET path="profile.birth" />
+              </span>
+            </div>
+            <div className="flex items-center gap-3">
+              <svg
+                className="w-4 h-4 text-secondary shrink-0"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1.5}
                   d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                 />
               </svg>
@@ -447,42 +466,57 @@ function ProfileSlide() {
             </div>
           </div>
 
-          {/* Experience */}
+          {/* Paper */}
           <div>
             <h3 className="flex items-center gap-2 text-base font-bold mb-5">
               <span className="w-[10px] h-[10px] bg-foreground inline-block" />
-              EXPERIENCE
+              PAPER
             </h3>
-            <div className="space-y-4 text-sm">
-              {t.experience.items.map((exp, i) => (
-                <div key={i} className="relative group">
-                  {isEditing && t.experience.items.length > 1 && (
-                    <div className="absolute -right-2 -top-1 z-10">
-                      <RemoveBtn
-                        onClick={() =>
-                          removeListItem("experience.items", i)
-                        }
-                      />
-                    </div>
+            <div className="space-y-3 text-sm">
+              {t.profile.paper.map((item, i) => (
+                <div key={i} className="relative group flex items-start gap-2">
+                  <span className="text-secondary shrink-0 mt-0.5">&bull;</span>
+                  <span className="flex-1 min-w-0 leading-[1.6]">
+                    <ET path={`profile.paper[${i}].title`} />
+                  </span>
+                  {isEditing && t.profile.paper.length > 1 && (
+                    <RemoveBtn
+                      onClick={() => removeListItem("profile.paper", i)}
+                    />
                   )}
-                  <p className="text-secondary">
-                    <ET path={`experience.items[${i}].period`} />
-                  </p>
-                  <p>
-                    <ET path={`experience.items[${i}].org`} inline /> |{" "}
-                    <ET path={`experience.items[${i}].role`} inline />
-                  </p>
                 </div>
               ))}
               {isEditing && (
                 <AddBtn
-                  onClick={() =>
-                    addListItem("experience.items", {
-                      period: "",
-                      role: "",
-                      org: "",
-                    })
-                  }
+                  onClick={() => addListItem("profile.paper", { title: "" })}
+                />
+              )}
+            </div>
+          </div>
+
+          {/* License */}
+          <div>
+            <h3 className="flex items-center gap-2 text-base font-bold mb-5">
+              <span className="w-[10px] h-[10px] bg-foreground inline-block" />
+              LICENSE
+            </h3>
+            <div className="space-y-3 text-sm">
+              {t.license.items.map((item, i) => (
+                <div key={i} className="relative group flex items-center gap-2">
+                  <span className="text-secondary shrink-0">&bull;</span>
+                  <span className="flex-1 min-w-0">
+                    <ET path={`license.items[${i}].name`} />
+                  </span>
+                  {isEditing && t.license.items.length > 1 && (
+                    <RemoveBtn
+                      onClick={() => removeListItem("license.items", i)}
+                    />
+                  )}
+                </div>
+              ))}
+              {isEditing && (
+                <AddBtn
+                  onClick={() => addListItem("license.items", { name: "" })}
                 />
               )}
             </div>
@@ -597,7 +631,7 @@ function AboutSlide() {
       <div className="absolute top-0 bottom-0 left-6 md:left-20 w-px bg-grid-line" />
       <div className="absolute top-[calc(46%-8px)] left-[72px] w-[14px] h-[14px] bg-foreground hidden md:block" />
 
-      <div className="relative z-10 h-full flex flex-col justify-between gap-12 md:gap-0 px-6 pt-16 pb-12 md:pl-28 md:pr-20 md:pt-24 md:pb-16 overflow-y-auto no-scrollbar">
+      <div className="relative z-10 h-full flex flex-col justify-start gap-12 md:gap-70 px-6 pt-16 pb-12 md:pl-28 md:pr-20 md:pt-24 md:pb-16 overflow-y-auto no-scrollbar">
         {/* Big statement */}
         <h2 className="text-[clamp(1.3rem,4.5vw,3.2rem)] font-extrabold leading-[1.35] tracking-[-0.02em] max-w-[900px]">
           {isEditing ? (
@@ -656,16 +690,17 @@ function ProjectsSlide({
                   : "cursor-pointer hover:opacity-80"
               }`}
             >
-              {/* Image placeholder */}
-              <div
-                className="w-full aspect-[4/3] rounded-sm mb-4 md:mb-6 transition-transform duration-300 group-hover:scale-[1.02]"
-                style={{
-                  background: GRADIENTS[i % GRADIENTS.length],
-                }}
-              />
+              {/* Project thumbnail */}
+              <div className="w-full aspect-[4/3] rounded-sm mb-4 md:mb-6 overflow-hidden transition-transform duration-300 group-hover:scale-[1.02] bg-card-bg flex items-center justify-center">
+                <img
+                  src={`/images/case${i + 1}대표사진.png`}
+                  alt={project.title}
+                  className="w-full h-full object-contain"
+                />
+              </div>
 
               {/* Info */}
-              <h3 className="text-lg md:text-xl font-bold mb-2">Case {i + 1}</h3>
+              <h3 className="text-lg md:text-xl font-bold mb-2">Project {i + 1}</h3>
               <p className="text-sm mb-1">
                 <span className="text-secondary mr-1">&bull;</span>
                 <ET path={`projects.items[${i}].summary`} />
@@ -703,22 +738,22 @@ function ProjectDetailSlide({
       <div className="absolute top-14 left-0 right-0 h-px bg-grid-line hidden md:block" />
       <div className="absolute bottom-14 left-0 right-0 h-px bg-grid-line hidden md:block" />
       <div className="absolute top-0 bottom-0 left-6 md:left-20 w-px bg-grid-line hidden md:block" />
-      <div className="absolute top-0 bottom-0 left-[42%] w-px bg-grid-line hidden md:block" />
+      <div className="absolute top-0 bottom-0 left-[38%] w-px bg-grid-line hidden md:block" />
 
       <div className="relative z-10 flex flex-col md:flex-row md:h-full">
         {/* Top on mobile / Left on desktop: Image */}
-        <div
-          className="w-full md:w-[42%] h-[200px] md:h-full shrink-0"
-          style={{
-            background:
-              GRADIENTS[(index - 1) % GRADIENTS.length] || GRADIENTS[0],
-          }}
-        />
+        <div className="w-full md:w-[38%] md:px-[4%] h-[200px] md:h-full shrink-0 overflow-hidden flex items-center justify-center bg-card-bg">
+          <img
+            src={`/images/case${pi + 1}.png`}
+            alt={project.title}
+            className="w-full h-full object-contain"
+          />
+        </div>
 
         {/* Below on mobile / Right on desktop: Info */}
-        <div className="w-full md:w-[58%] flex flex-col justify-center px-6 py-8 md:px-16 md:py-20 md:overflow-y-auto md:no-scrollbar">
+        <div className="w-full md:w-[62%] flex flex-col justify-center px-6 py-8 md:px-16 md:py-20 md:overflow-y-auto md:no-scrollbar">
           <p className="text-xs md:text-sm font-semibold text-secondary mb-3 md:mb-4">
-            Case {index}
+            Project {index}
           </p>
 
           <h2 className="text-xl md:text-[2.2rem] font-extrabold mb-2 md:mb-3 leading-tight">
@@ -752,15 +787,6 @@ function ProjectDetailSlide({
               </span>
               <span className="text-sm pt-0.5 flex-1 min-w-0">
                 <ET path={`projects.items[${pi}].org`} />
-              </span>
-            </div>
-
-            <div className="flex gap-3 md:gap-5 items-start">
-              <span className="inline-flex items-center justify-center px-2 md:px-3 py-1 bg-[#2e4164] text-white text-[10px] md:text-xs font-semibold rounded-[2px] w-[72px] md:w-[84px] shrink-0">
-                역할
-              </span>
-              <span className="text-sm pt-0.5 flex-1 min-w-0">
-                <ET path={`projects.items[${pi}].role`} />
               </span>
             </div>
 
@@ -820,6 +846,164 @@ function ProjectDetailSlide({
                 }
               />
             )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   SLIDE: Project Detail Extra (내용 / 담당 역할 / 기여사항 / 성과)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+function ProjectDetailExtraSlide({
+  project,
+  index,
+  projectIndex,
+}: {
+  project: Project;
+  index: number;
+  projectIndex: number;
+}) {
+  const { isEditing } = useEditMode();
+  const { t, updateField, addListItem, removeListItem } = useLanguage();
+  const pi = projectIndex;
+
+  return (
+    <div className="relative min-h-[70vh] md:h-full bg-card-bg">
+      {/* Grid decorations */}
+      <div className="absolute top-14 left-0 right-0 h-px bg-grid-line hidden md:block" />
+      <div className="absolute bottom-14 left-0 right-0 h-px bg-grid-line hidden md:block" />
+      <div className="absolute top-0 bottom-0 left-6 md:left-20 w-px bg-grid-line hidden md:block" />
+
+      <div className="relative z-10 h-full flex flex-col px-6 py-10 md:pl-28 md:pr-20 md:py-20 overflow-y-auto no-scrollbar">
+        {/* Header */}
+        <p className="text-xs md:text-sm font-semibold text-secondary mb-2">
+          Project {index}
+        </p>
+        <h2 className="text-xl md:text-[2rem] font-extrabold mb-8 md:mb-12 leading-tight">
+          <ET path={`projects.items[${pi}].title`} />
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+          {/* 내용 */}
+          <div>
+            <h3 className="flex items-center gap-2 text-sm font-bold mb-3">
+              <span className="w-[8px] h-[8px] bg-accent inline-block shrink-0" />
+              내용
+            </h3>
+            <p className="text-sm leading-[1.8] text-secondary">
+              <ETA path={`projects.items[${pi}].description`} rows={4} />
+            </p>
+          </div>
+
+          {/* 담당 역할 */}
+          <div>
+            <h3 className="flex items-center gap-2 text-sm font-bold mb-3">
+              <span className="w-[8px] h-[8px] bg-accent inline-block shrink-0" />
+              담당 역할
+            </h3>
+            <p className="text-sm leading-[1.8] text-secondary">
+              <ET path={`projects.items[${pi}].role`} />
+            </p>
+          </div>
+
+          {/* 기여사항 */}
+          <div>
+            <h3 className="flex items-center gap-2 text-sm font-bold mb-3">
+              <span className="w-[8px] h-[8px] bg-accent inline-block shrink-0" />
+              기여사항
+            </h3>
+            <div className="space-y-2">
+              {project.contributions.map((c, j) => (
+                <div key={j} className="flex items-start gap-2">
+                  <span className="text-secondary shrink-0 mt-0.5">&bull;</span>
+                  <span className="text-sm text-secondary flex-1 min-w-0">
+                    {isEditing ? (
+                      <input
+                        type="text"
+                        value={c}
+                        onChange={(e) =>
+                          updateField(
+                            `projects.items[${pi}].contributions[${j}]`,
+                            e.target.value
+                          )
+                        }
+                        className="edit-input"
+                        onClick={(e) => e.stopPropagation()}
+                      />
+                    ) : (
+                      c
+                    )}
+                  </span>
+                  {isEditing &&
+                    t.projects.items[pi].contributions.length > 1 && (
+                      <RemoveBtn
+                        onClick={() =>
+                          removeListItem(
+                            `projects.items[${pi}].contributions`,
+                            j
+                          )
+                        }
+                      />
+                    )}
+                </div>
+              ))}
+              {isEditing && (
+                <AddBtn
+                  onClick={() =>
+                    addListItem(`projects.items[${pi}].contributions`, "")
+                  }
+                />
+              )}
+            </div>
+          </div>
+
+          {/* 성과 */}
+          <div>
+            <h3 className="flex items-center gap-2 text-sm font-bold mb-3">
+              <span className="w-[8px] h-[8px] bg-accent inline-block shrink-0" />
+              성과
+            </h3>
+            <div className="space-y-2">
+              {project.results.map((r, j) => (
+                <div key={j} className="flex items-start gap-2">
+                  <span className="text-secondary shrink-0 mt-0.5">&bull;</span>
+                  <span className="text-sm text-secondary flex-1 min-w-0">
+                    {isEditing ? (
+                      <input
+                        type="text"
+                        value={r}
+                        onChange={(e) =>
+                          updateField(
+                            `projects.items[${pi}].results[${j}]`,
+                            e.target.value
+                          )
+                        }
+                        className="edit-input"
+                        onClick={(e) => e.stopPropagation()}
+                      />
+                    ) : (
+                      r
+                    )}
+                  </span>
+                  {isEditing && t.projects.items[pi].results.length > 1 && (
+                    <RemoveBtn
+                      onClick={() =>
+                        removeListItem(`projects.items[${pi}].results`, j)
+                      }
+                    />
+                  )}
+                </div>
+              ))}
+              {isEditing && (
+                <AddBtn
+                  onClick={() =>
+                    addListItem(`projects.items[${pi}].results`, "")
+                  }
+                />
+              )}
+            </div>
           </div>
         </div>
       </div>
@@ -917,14 +1101,20 @@ export default function Portfolio() {
     <ProfileSlide key="profile" />,
     <AboutSlide key="about" />,
     <ProjectsSlide key="projects" onNavigate={scrollToSlide} />,
-    ...t.projects.items.map((p, i) => (
+    ...t.projects.items.flatMap((p, i) => [
       <ProjectDetailSlide
         key={p.id}
         project={p}
         index={i + 1}
         projectIndex={i}
-      />
-    )),
+      />,
+      <ProjectDetailExtraSlide
+        key={`${p.id}-extra`}
+        project={p}
+        index={i + 1}
+        projectIndex={i}
+      />,
+    ]),
     <ContactSlide key="contact" />,
   ];
 
